@@ -121,9 +121,15 @@
 
     .hero {
       text-align: center;
-      padding: 5rem 1.5rem 4rem;
+      padding: 3rem 1.5rem 4rem;
       max-width: 700px;
       margin: 0 auto;
+    }
+
+    .hero-mascot {
+      width: 160px;
+      height: auto;
+      margin-bottom: 1.5rem;
     }
 
     .hero h1 {
@@ -191,6 +197,12 @@
       padding: 3rem 1.5rem;
       background: var(--raft-50);
       border-top: 1px solid var(--raft-100);
+    }
+
+    .callout-banner .callout-img {
+      width: 280px;
+      height: auto;
+      margin-bottom: 1rem;
     }
 
     .callout-banner h2 {
@@ -330,6 +342,8 @@
     }
 
     @media (max-width: 600px) {
+      .hero-mascot { width: 120px; }
+      .callout-banner .callout-img { width: 200px; }
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1.05rem; }
       .features { grid-template-columns: 1fr; }
@@ -351,6 +365,7 @@
 
   <main id="main-content">
   <section class="hero">
+    <img src="/icon-512.png" alt="Shells the otter" class="hero-mascot" width="160" height="160">
     <h1>Keep your tabs safe.</h1>
     <p>Suspend inactive tabs to free memory and save your browsing sessions with multi-layer backup protection. Like otters holding hands while they sleep, Shells keeps your tabs safe and connected.</p>
     <a href="#" class="cta" id="cws-link">Coming Soon to Chrome Web Store</a>
@@ -396,6 +411,7 @@
   </section>
 
   <section class="callout-banner">
+    <img src="/raft.png" alt="Two otters floating together in kelp — a raft" class="callout-img" width="280" height="152">
     <h2>Why should you trust me?</h2>
     <p>The code is open, Shells can't peek at your data, and Raft will never be sold. <a href="/trust">Read my promise.</a></p>
   </section>
