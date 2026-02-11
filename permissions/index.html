@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permissions Explained — Raft</title>
+  <meta name="description" content="Exactly what each Chrome permission does and why Raft needs it.">
+  <link rel="icon" type="image/png" sizes="48x48" href="/icon48.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="canonical" href="https://raftapp.io/permissions/">
+  <meta name="theme-color" content="#df7c2e">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Raft">
+  <meta property="og:title" content="Permissions Explained — Raft">
+  <meta property="og:description" content="Exactly what each Chrome permission does and why Raft needs it.">
+  <meta property="og:url" content="https://raftapp.io/permissions/">
+  <meta property="og:image" content="https://raftapp.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="Raft — Keep Your Tabs Safe">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Permissions Explained — Raft">
+  <meta name="twitter:description" content="Exactly what each Chrome permission does and why Raft needs it.">
+  <meta name="twitter:image" content="https://raftapp.io/og-image.png">
+  <meta name="twitter:image:alt" content="Raft — Keep Your Tabs Safe">
+  <style>
+    :root {
+      --raft-100: #f9e8d0;
+      --raft-500: #df7c2e;
+      --raft-600: #d06424;
+      --raft-700: #ad4b20;
+      --raft-800: #8a3c21;
+      --text: #3a2415;
+      --text-light: #6b5244;
+      --bg: #fffbf7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      text-wrap: pretty;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 0;
+    }
+
+    nav .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--raft-700);
+      text-decoration: none;
+    }
+
+    nav .links a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav .links a:hover { color: var(--raft-600); }
+
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--raft-800);
+      margin-bottom: 0.25rem;
+      text-wrap: balance;
+    }
+
+    .intro {
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+    }
+
+    .perm {
+      background: #fff;
+      border: 1px solid var(--raft-100);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .perm h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--raft-700);
+      margin-bottom: 0.5rem;
+    }
+
+    .perm h2 code {
+      background: var(--raft-100);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    p { margin-bottom: 0.6rem; font-size: 0.97rem; }
+
+    ul { margin: 0.4rem 0 0.75rem 1.5rem; font-size: 0.97rem; }
+    li { margin-bottom: 0.25rem; }
+
+    .dont {
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    h2.section-heading {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--raft-800);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      text-wrap: balance;
+    }
+
+    a { color: var(--raft-600); }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--raft-600);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--raft-500);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      z-index: 100;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <nav>
+    <a href="/" class="logo">Raft</a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="https://github.com/raftapp/raft">GitHub</a>
+    </div>
+  </nav>
+
+  <main id="main-content" class="content">
+    <h1>Permissions Explained</h1>
+    <p class="intro">Raft requests only the permissions it needs. Here's exactly what each one does.</p>
+
+    <div class="perm">
+      <h2><code>tabs</code></h2>
+      <p>Lets Raft see your open tabs — URLs, titles, and states (pinned, audio playing).</p>
+      <p><strong>Why:</strong> Core to saving sessions, suspending inactive tabs, and applying protection rules.</p>
+      <p class="dont">We never send your tab data anywhere. Everything stays local.</p>
+    </div>
+
+    <div class="perm">
+      <h2><code>tabGroups</code></h2>
+      <p>Lets Raft read and restore Chrome's tab groups.</p>
+      <p><strong>Why:</strong> To preserve group names, colors, and collapsed state when saving and restoring sessions.</p>
+    </div>
+
+    <div class="perm">
+      <h2><code>storage</code></h2>
+      <p>Lets Raft save data to your browser's local storage.</p>
+      <p><strong>Why:</strong> Sessions, settings, and tab activity data persist between browser restarts.</p>
+      <p class="dont">This storage is entirely local to your browser.</p>
+    </div>
+
+    <div class="perm">
+      <h2><code>alarms</code></h2>
+      <p>Lets Raft set background timers.</p>
+      <p><strong>Why:</strong> Auto-suspension checks and auto-save run on a schedule, even when the popup is closed.</p>
+      <p class="dont">No tracking or heartbeats to external servers. Purely local timers.</p>
+    </div>
+
+    <div class="perm">
+      <h2><code>contextMenus</code></h2>
+      <p>Adds "Suspend this tab" and "Suspend other tabs" to Chrome's right-click menu.</p>
+      <p><strong>Why:</strong> Quick access to suspension without opening the popup.</p>
+    </div>
+
+    <div class="perm">
+      <h2><code>identity</code></h2>
+      <p>Lets Raft use Chrome's built-in OAuth to connect to Google Drive.</p>
+      <p><strong>Why:</strong> Optional cloud sync (Pro feature). Uses Chrome's secure identity system — Raft never sees your Google password.</p>
+      <p class="dont">We only access a private app-data folder. We cannot see your Drive files, email, or contacts.</p>
+    </div>
+
+    <div class="perm">
+      <h2><code>googleapis.com</code> host permissions</h2>
+      <p>Lets Raft communicate with Google's OAuth and Drive APIs.</p>
+      <p><strong>Why:</strong> To complete sign-in and upload/download encrypted sessions.</p>
+      <p class="dont">All session data is encrypted before upload. These APIs are not used for tracking.</p>
+    </div>
+
+    <h2 class="section-heading">Permissions We Don't Request</h2>
+
+    <div class="perm">
+      <p><code>history</code> — We don't need your browsing history. Only open tabs matter.</p>
+      <p><code>bookmarks</code> — Sessions are managed separately from bookmarks.</p>
+      <p><code>webRequest</code> — We don't inspect or modify web traffic.</p>
+      <p><code>&lt;all_urls&gt;</code> — We don't inject scripts into pages. We only need tab metadata.</p>
+    </div>
+
+    <p>Questions? <a href="https://github.com/raftapp/raft/issues">Open an issue</a> or email <a href="mailto:privacy@raftapp.io">privacy@raftapp.io</a>.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Kevin Raymond. <a href="/privacy">Privacy</a> &middot; <a href="/permissions">Permissions</a> &middot; <a href="/terms">Terms</a> &middot; <a href="https://github.com/raftapp/raft">Source Code</a></p>
+  </footer>
+</body>
+</html>

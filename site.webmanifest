@@ -1,0 +1,21 @@
+{
+  "name": "Raft — Keep Your Tabs Safe",
+  "short_name": "Raft",
+  "description": "Suspend inactive tabs to save memory and manage browsing sessions with multi-layer backup protection.",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#df7c2e",
+  "background_color": "#fffbf7",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

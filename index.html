@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raft — Keep Your Tabs Safe</title>
+  <meta name="description" content="Suspend inactive tabs to save memory and manage browsing sessions. Auto-save, tab groups, cloud sync. Your tabs are safe.">
+  <link rel="icon" type="image/png" sizes="48x48" href="/icon48.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="canonical" href="https://raftapp.io/">
+  <meta name="theme-color" content="#df7c2e">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raft">
+  <meta property="og:title" content="Raft — Keep Your Tabs Safe">
+  <meta property="og:description" content="Suspend inactive tabs to save memory and manage browsing sessions. Auto-save, tab groups, cloud sync. Your tabs are safe.">
+  <meta property="og:url" content="https://raftapp.io/">
+  <meta property="og:image" content="https://raftapp.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="Raft — Keep Your Tabs Safe">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Raft — Keep Your Tabs Safe">
+  <meta name="twitter:description" content="Suspend inactive tabs to save memory and manage browsing sessions. Auto-save, tab groups, cloud sync. Your tabs are safe.">
+  <meta name="twitter:image" content="https://raftapp.io/og-image.png">
+  <meta name="twitter:image:alt" content="Raft — Keep Your Tabs Safe">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Raft",
+    "description": "Suspend inactive tabs to save memory and manage browsing sessions with multi-layer backup protection.",
+    "url": "https://raftapp.io/",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "offers": [
+      {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "name": "Free"
+      },
+      {
+        "@type": "Offer",
+        "price": "25",
+        "priceCurrency": "USD",
+        "name": "Pro"
+      }
+    ],
+    "featureList": [
+      "Tab suspension with protection rules",
+      "Session save and restore",
+      "Tab group preservation",
+      "Close duplicate tabs",
+      "Auto-save and recovery snapshots",
+      "Backup health monitor",
+      "Cloud sync with end-to-end encryption",
+      "Import and export",
+      "Keyboard shortcuts"
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Raft",
+      "url": "https://raftapp.io/"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --raft-50: #fdf6ed;
+      --raft-100: #f9e8d0;
+      --raft-200: #f2ce9d;
+      --raft-400: #e4944a;
+      --raft-500: #df7c2e;
+      --raft-600: #d06424;
+      --raft-700: #ad4b20;
+      --raft-800: #8a3c21;
+      --raft-900: #5c2a19;
+      --text: #3a2415;
+      --text-light: #6b5244;
+      --bg: #fffbf7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      text-wrap: pretty;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 0;
+    }
+
+    nav .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--raft-700);
+      text-decoration: none;
+    }
+
+    nav .links a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav .links a:hover { color: var(--raft-600); }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 1.5rem 4rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: var(--raft-800);
+      text-wrap: balance;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta {
+      display: inline-block;
+      background: var(--raft-500);
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .cta:hover { background: var(--raft-600); }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 5rem;
+    }
+
+    .feature {
+      background: #fff;
+      border: 1px solid var(--raft-100);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .feature h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--raft-700);
+    }
+
+    .feature p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .privacy-banner {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--raft-50);
+      border-top: 1px solid var(--raft-100);
+    }
+
+    .privacy-banner h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--raft-800);
+      margin-bottom: 0.75rem;
+      text-wrap: balance;
+    }
+
+    .privacy-banner p {
+      color: var(--text-light);
+      max-width: 540px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--raft-600);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    .pricing {
+      text-align: center;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .pricing h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--raft-800);
+      margin-bottom: 0.5rem;
+      text-wrap: balance;
+    }
+
+    .pricing-subtitle {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border: 1px solid var(--raft-100);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: left;
+    }
+
+    .pricing-card.pro {
+      border-color: var(--raft-400);
+      box-shadow: 0 2px 12px rgba(224, 148, 74, 0.15);
+    }
+
+    .pricing-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--raft-700);
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-card .price {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    .pricing-card .price span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pricing-card li {
+      font-size: 0.93rem;
+      color: var(--text-light);
+      padding: 0.3rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .pricing-card li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--raft-500);
+      font-weight: 600;
+    }
+
+    .pricing-note {
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--raft-600);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--raft-500);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      z-index: 100;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1.05rem; }
+      .features { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <nav>
+    <a href="/" class="logo">Raft</a>
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="/privacy">Privacy</a>
+      <a href="https://github.com/raftapp/raft">GitHub</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+  <section class="hero">
+    <h1>Keep your tabs safe.</h1>
+    <p>Suspend inactive tabs to free memory and save your browsing sessions with multi-layer backup protection. Like otters holding hands while they sleep, Raft keeps your tabs safe and connected.</p>
+    <a href="#" class="cta" id="cws-link">Coming Soon to Chrome Web Store</a>
+  </section>
+
+  <section class="features" id="features">
+    <div class="feature">
+      <h3>Your Tabs Are Safe</h3>
+      <p>Multi-layer backup protection: auto-save, recovery snapshots, browser sync, and optional cloud sync. A backup health monitor shows the status of every layer.</p>
+    </div>
+    <div class="feature">
+      <h3>Suspend &amp; Save Memory</h3>
+      <p>Uses Chrome's native tab discarding to automatically free memory from inactive tabs. Pinned tabs, tabs playing audio, and whitelisted sites are always protected.</p>
+    </div>
+    <div class="feature">
+      <h3>Save &amp; Restore Sessions</h3>
+      <p>Capture every window, tab, and tab group. Expand a session to select specific tabs to restore, or restore everything at once — even as suspended.</p>
+    </div>
+    <div class="feature">
+      <h3>Tab Groups Preserved</h3>
+      <p>Raft faithfully saves and restores Chrome's native tab groups — names, colors, and collapsed state. No more lost group organization.</p>
+    </div>
+    <div class="feature">
+      <h3>Close Duplicate Tabs</h3>
+      <p>One click to find and close duplicate tabs across all windows. Protection rules are respected, and Raft keeps the best copy. Press Alt+Shift+D anytime.</p>
+    </div>
+    <div class="feature">
+      <h3>Cloud Sync with E2E Encryption</h3>
+      <p>Sync sessions to Google Drive, encrypted with a password only you know. One-time $25 Pro upgrade — no subscriptions, ever.</p>
+    </div>
+    <div class="feature">
+      <h3>Import Your Data</h3>
+      <p>Switching from OneTab, Session Buddy, Tab Session Manager, or Toby? Import your existing sessions with one click.</p>
+    </div>
+    <div class="feature">
+      <h3>Keyboard Shortcuts</h3>
+      <p>Suspend tabs, close duplicates, and manage sessions without leaving the keyboard. Configurable shortcuts for every common action.</p>
+    </div>
+    <div class="feature">
+      <h3>Privacy First</h3>
+      <p>No analytics. No tracking. No third-party data sharing. Your browsing data stays on your device unless you explicitly enable cloud sync.</p>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <h2>Simple, honest pricing.</h2>
+    <p class="pricing-subtitle">All core features are free. Pay once for cloud sync — no subscriptions.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Free</h3>
+        <div class="price">$0</div>
+        <ul>
+          <li>Tab suspension with protection rules</li>
+          <li>Session save &amp; restore</li>
+          <li>Selective restore</li>
+          <li>Tab group preservation</li>
+          <li>Close duplicate tabs</li>
+          <li>Auto-save &amp; recovery snapshots</li>
+          <li>Backup health monitor</li>
+          <li>Import &amp; export</li>
+          <li>Keyboard shortcuts</li>
+        </ul>
+      </div>
+      <div class="pricing-card pro">
+        <h3>Pro</h3>
+        <div class="price">$25 <span>one-time</span></div>
+        <ul>
+          <li>Everything in Free, plus:</li>
+          <li>Cloud sync to Google Drive</li>
+          <li>End-to-end encryption (AES-256-GCM)</li>
+          <li>Sync across devices</li>
+        </ul>
+        <p class="pricing-note">No subscriptions. Ever.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy-banner">
+    <h2>Your data stays yours.</h2>
+    <p>Raft has no servers, no analytics, and no tracking. Everything is stored locally. Cloud sync is optional and end-to-end encrypted. <a href="/privacy">Read our privacy policy.</a></p>
+    <p style="margin-top: 1rem;"><strong>Why should you trust us?</strong> The code is open, we can't see your data, and Raft will never be sold. <a href="/trust">Read our promise.</a></p>
+  </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Kevin Raymond. <a href="/privacy">Privacy</a> &middot; <a href="/permissions">Permissions</a> &middot; <a href="/terms">Terms</a> &middot; <a href="https://github.com/raftapp/raft">Source Code</a></p>
+  </footer>
+</body>
+</html>

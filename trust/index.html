@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Promise — Raft</title>
+  <meta name="description" content="Why Raft is open source, can't see your data, and will never be sold. Our trust commitment to users.">
+  <link rel="icon" type="image/png" sizes="48x48" href="/icon48.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="canonical" href="https://raftapp.io/trust/">
+  <meta name="theme-color" content="#df7c2e">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Raft">
+  <meta property="og:title" content="Our Promise — Raft">
+  <meta property="og:description" content="Why Raft is open source, can't see your data, and will never be sold. Our trust commitment to users.">
+  <meta property="og:url" content="https://raftapp.io/trust/">
+  <meta property="og:image" content="https://raftapp.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="Raft — Keep Your Tabs Safe">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Promise — Raft">
+  <meta name="twitter:description" content="Why Raft is open source, can't see your data, and will never be sold. Our trust commitment to users.">
+  <meta name="twitter:image" content="https://raftapp.io/og-image.png">
+  <meta name="twitter:image:alt" content="Raft — Keep Your Tabs Safe">
+  <style>
+    :root {
+      --raft-100: #f9e8d0;
+      --raft-500: #df7c2e;
+      --raft-600: #d06424;
+      --raft-700: #ad4b20;
+      --raft-800: #8a3c21;
+      --text: #3a2415;
+      --text-light: #6b5244;
+      --bg: #fffbf7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      text-wrap: pretty;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 0;
+    }
+
+    nav .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--raft-700);
+      text-decoration: none;
+    }
+
+    nav .links a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav .links a:hover { color: var(--raft-600); }
+
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--raft-800);
+      margin-bottom: 0.25rem;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--raft-700);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      text-wrap: balance;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+      text-wrap: balance;
+    }
+
+    p { margin-bottom: 0.75rem; font-size: 0.97rem; }
+
+    a { color: var(--raft-600); }
+
+    .signoff {
+      margin-top: 2rem;
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--raft-600);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--raft-500);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      z-index: 100;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <nav>
+    <a href="/" class="logo">Raft</a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/permissions">Permissions</a>
+      <a href="https://github.com/raftapp/raft">GitHub</a>
+    </div>
+  </nav>
+
+  <main id="main-content" class="content">
+    
+    <h1>My Promise</h1>
+    <p class="subtitle">Why trust matters more than features</p>
+
+    <p>Browser extensions are uniquely powerful. They can see every page you visit, read every form you fill out, and silently phone home without you ever knowing. Most of the time you just have to trust that they won't.</p>
+    <p>We've all seen what happens when that trust breaks.</p>
+    <p>The Great Suspender was one of the most popular tab management extensions in the Chrome Web Store. Millions of users relied on it daily. Then it was quietly sold to an unknown entity, injected with tracking code, and ultimately <a href="https://en.wikipedia.org/wiki/The_Great_Suspender">flagged as malware by Google</a>. Users woke up one morning to find their trusted tool had been weaponized against them. More recently, popular VPN extensions were caught bundling malware. Extensions that people installed specifically because they cared about privacy opening the doors wide open? Crazy.</p>
+    <p>I built Raft because I needed a tab manager I could trust. I'm sharing it because you need one too.</p>
+
+    <h2>What makes Raft different</h2>
+
+    <h3>The code is open. All of it.</h3>
+    <p>Raft's entire source code, including the single Pro feature, is publicly available under the <a href="https://github.com/raftapp/raft">MIT License</a>. There are no hidden binaries, no obfuscated scripts, no proprietary blobs. You can read every line, build it yourself, or fork it entirely.</p>
+    <p>Pro purchases support continued development. They don't gate access to secret code.</p>
+
+    <h3>I can't see your data. By design.</h3>
+    <p>Raft's Free Tier is 100% local. Nothing leaves your browser. No analytics, no telemetry, no crash reports, no usage tracking. Zero.</p>
+    <p>Cloud Sync (Pro) uses end-to-end encryption (AES-256-GCM) with keys derived from a password only you know. Your data is encrypted on your device before it ever leaves your browser. I literally cannot read it, even if I wanted to.</p>
+
+    <h3>Raft will never be sold.</h3>
+    <p>I will not sell Raft to a third party. Period. No acqui-hire deal, no "Raft is starting an exciting new chapter" announcement, no quiet transfer of ownership to an entity that mines your browsing data.</p>
+    <p>If I'm ever unable to maintain Raft, the MIT License means the community can carry it forward - fully functional, Pro features and all. No one's permission needed.</p>
+
+    <h3>I don't operate servers.</h3>
+    <p>There is no Raft backend. No servers I control that could be compromised, subpoenaed, or quietly repurposed. Your sync data lives in your own Google Drive in an app-specific folder that only Raft can access. What about Google? They can see there is some encrypted data. That's it!</p>
+
+    <h2>The deal</h2>
+    <p>When you install Raft, you get a full-featured tab manager that respects your privacy. If you buy Pro, you're supporting me - an independent developer who thinks extensions should work for users, not against them. Either way, you get the same transparency and the same source code.</p>
+    <p>That's it. No fine print. No catch.</p>
+    <p class="signoff">- Kevin</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Kevin Raymond. <a href="/privacy">Privacy</a> &middot; <a href="/permissions">Permissions</a> &middot; <a href="/terms">Terms</a> &middot; <a href="https://github.com/raftapp/raft">Source Code</a></p>
+  </footer>
+</body>
+</html>
