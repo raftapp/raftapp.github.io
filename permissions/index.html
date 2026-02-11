@@ -220,7 +220,7 @@
       <h2><code>identity</code></h2>
       <p>Lets Raft use Chrome's built-in OAuth to connect to Google Drive.</p>
       <p><strong>Why:</strong> Optional cloud sync (Pro feature). Uses Chrome's secure identity system — Raft never sees your Google password.</p>
-      <p class="dont">I only access a private app-data folder. I cannot see your Drive files, email, or contacts.</p>
+      <p class="dont">I only access a private app-data folder and your email address. I cannot see your Drive files or contacts.</p>
     </div>
 
     <div class="perm">
@@ -228,6 +228,15 @@
       <p>Lets Raft communicate with Google's OAuth and Drive APIs.</p>
       <p><strong>Why:</strong> To complete sign-in and upload/download encrypted sessions.</p>
       <p class="dont">All session data is encrypted before upload. These APIs are not used for tracking.</p>
+    </div>
+
+    <div class="perm">
+      <h2>Google account permissions</h2>
+      <p>When you enable cloud sync, Google's consent screen asks you to grant two permissions:</p>
+      <ul>
+        <li><strong>"See your primary Google Account email address"</strong> — Raft reads your email address so the sync UI can show which account is connected (e.g. "Connected as you@gmail.com"). That's the only thing Raft does with it.</li>
+        <li><strong>"Associate you with your personal info on Google"</strong> — Google adds this automatically whenever an app requests your email. Raft doesn't use this for anything beyond the email address above.</li>
+      </ul>
     </div>
 
     <h2 class="section-heading">Permissions I Don't Request</h2>
