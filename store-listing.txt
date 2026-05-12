@@ -1,0 +1,97 @@
+SUMMARY (132 char max)
+
+Suspend inactive tabs to save memory and keep your sessions safe with multi-layer backup protection. Open source, privacy first.
+
+(126 characters)
+
+
+DESCRIPTION
+
+Raft suspends inactive tabs to free memory and saves your browsing sessions so you never lose your work.
+
+Save and restore every window, tab, and tab group. Close duplicates with one click. Import from OneTab, Session Buddy, and more. Multi-layer backup protection -- auto-save, recovery snapshots, and optional encrypted cloud sync -- keeps everything safe.
+
+Fully free and open source. No ads, no tracking, no data collection, no subscriptions.
+
+
+YOUR TABS ARE SAFE
+
+Raft guards your tabs with multi-layer backup protection:
+- Auto-save captures your sessions on a schedule
+- Recovery snapshots provide a safety net if something goes wrong
+- Browser sync keeps things backed up through Chrome
+- Optional cloud sync adds another layer with end-to-end encryption
+- A backup health monitor shows the status of every protection layer at a glance
+
+Never lose your tabs again.
+
+
+FEATURES
+
+Suspend and Save Memory
+Uses Chrome's native tab discarding to automatically free memory from inactive tabs. Pinned tabs, tabs playing audio, and whitelisted sites are always protected.
+
+Save and Restore Sessions
+Capture every window, tab, and tab group. Expand a session to select specific tabs to restore, or restore everything at once -- even as suspended.
+
+Tab Groups Preserved
+Faithfully saves and restores Chrome's native tab groups -- names, colors, and collapsed state. No more lost group organization.
+
+Close Duplicate Tabs
+One click to find and close duplicate tabs across all windows. Protection rules are respected, and Raft keeps the best copy. Press Alt+Shift+D anytime.
+
+Import Your Data
+Switching from OneTab, Session Buddy, Tab Session Manager, or Toby? Import your existing sessions with one click.
+
+Keyboard Shortcuts
+Suspend tabs, close duplicates, and manage sessions without leaving the keyboard. Configurable shortcuts for every common action.
+
+
+PRIVACY FIRST
+
+Raft has no servers, no analytics, and no tracking. Everything is stored locally on your device. We collect no telemetry, no usage statistics, no crash reports, and no personally identifiable information.
+
+Your browsing data never leaves your device unless you explicitly enable cloud sync.
+
+
+CLOUD SYNC WITH END-TO-END ENCRYPTION
+
+Sync sessions to Google Drive, encrypted with a password only you know. Your data is encrypted on your device using AES-256-GCM before it ever leaves your browser. We literally cannot read it.
+
+Raft only accesses a private, app-specific folder in your Drive. It cannot see, read, or modify any of your other files.
+
+Free and optional -- no accounts, no subscriptions.
+
+
+OPEN SOURCE
+
+Raft's entire source code is publicly available under the MIT License. There are no hidden binaries, no obfuscated scripts, no proprietary blobs. You can read every line, build it yourself, or fork it entirely.
+
+
+WHY TRUST RAFT?
+
+The Great Suspender was one of the most popular tab management extensions in Chrome. Then it was quietly sold, injected with tracking code, and flagged as malware. We built Raft because you deserve a tab manager you can trust.
+
+- The code is open -- all of it
+- We can't see your data -- by design
+- Raft will never be sold to a third party
+- We don't operate servers -- there is no Raft backend
+
+
+PERMISSIONS
+
+Raft requests only the permissions it needs:
+- tabs -- To see your open tabs for saving sessions and suspension
+- tabGroups -- To preserve tab group names, colors, and state
+- storage -- To save sessions and settings locally
+- alarms -- For auto-save and suspension timers
+- contextMenus -- Right-click "Suspend this tab" and "Suspend other tabs"
+- identity -- Optional Google OAuth for cloud sync
+
+Permissions we don't request: history, bookmarks, webRequest, or broad host access. We don't need your browsing history, we don't inject scripts into pages, and we don't inspect web traffic.
+
+
+Learn more: https://raftapp.io
+Source code: https://github.com/raftapp/raft
+Privacy policy: https://raftapp.io/privacy
+Questions? https://github.com/raftapp/raft/issues

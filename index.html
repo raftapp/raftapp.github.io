@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raft — Keep Your Tabs Safe</title>
-  <meta name="description" content="Suspend inactive tabs to save memory and manage browsing sessions. Auto-save, tab groups, cloud sync. Your tabs are safe.">
+  <meta name="description" content="Suspend inactive tabs to save memory and manage browsing sessions. Auto-save, tab groups, free cloud sync. Your tabs are safe.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Raft">
   <meta property="og:title" content="Raft — Keep Your Tabs Safe">
-  <meta property="og:description" content="Suspend inactive tabs to save memory and manage browsing sessions. Auto-save, tab groups, cloud sync. Your tabs are safe.">
+  <meta property="og:description" content="Suspend inactive tabs to save memory and manage browsing sessions. Auto-save, tab groups, free cloud sync. Your tabs are safe.">
   <meta property="og:url" content="https://raftapp.io/">
   <meta property="og:image" content="https://raftapp.io/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -23,7 +23,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Raft — Keep Your Tabs Safe">
-  <meta name="twitter:description" content="Suspend inactive tabs to save memory and manage browsing sessions. Auto-save, tab groups, cloud sync. Your tabs are safe.">
+  <meta name="twitter:description" content="Suspend inactive tabs to save memory and manage browsing sessions. Auto-save, tab groups, free cloud sync. Your tabs are safe.">
   <meta name="twitter:image" content="https://raftapp.io/og-image.png">
   <meta name="twitter:image:alt" content="Raft — Keep Your Tabs Safe">
   <!-- Structured Data -->
@@ -36,20 +36,12 @@
     "url": "https://raftapp.io/",
     "applicationCategory": "BrowserApplication",
     "operatingSystem": "Chrome",
-    "offers": [
-      {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "name": "Free"
-      },
-      {
-        "@type": "Offer",
-        "price": "25",
-        "priceCurrency": "USD",
-        "name": "Pro"
-      }
-    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "name": "Free"
+    },
     "featureList": [
       "Tab suspension with protection rules",
       "Session save and restore",
@@ -181,104 +173,12 @@
       font-size: 1rem;
     }
 
-    .pricing {
-      text-align: center;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
-    }
-
-    .pricing h2 {
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: var(--raft-800);
-      margin-bottom: 0.5rem;
-      text-wrap: balance;
-    }
-
-    .pricing-subtitle {
-      color: var(--text-light);
-      font-size: 1.05rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .pricing-card {
-      background: #fff;
-      border: 1px solid var(--raft-100);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: left;
-    }
-
-    .pricing-card.pro {
-      border-color: var(--raft-400);
-      box-shadow: 0 2px 12px rgba(224, 148, 74, 0.15);
-    }
-
-    .pricing-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--raft-700);
-      margin-bottom: 0.5rem;
-    }
-
-    .pricing-card .price {
-      font-size: 2.25rem;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 1.25rem;
-    }
-
-    .pricing-card .price span {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-light);
-    }
-
-    .pricing-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .pricing-card li {
-      font-size: 0.93rem;
-      color: var(--text-light);
-      padding: 0.3rem 0;
-      padding-left: 1.25rem;
-      position: relative;
-    }
-
-    .pricing-card li::before {
-      content: "\2713";
-      position: absolute;
-      left: 0;
-      color: var(--raft-500);
-      font-weight: 600;
-    }
-
-    .pricing-note {
-      margin-top: 1.25rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--raft-600);
-    }
-
     @media (max-width: 600px) {
       .hero-mascot { width: 120px; }
       .callout-banner .callout-img { width: 200px; }
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1.05rem; }
       .features { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -288,7 +188,6 @@
     <a href="/" class="logo"><img src="/logo.png" alt="" width="111" height="64">Raft</a>
     <div class="links">
       <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
       <a href="/trust">Trust</a>
       <a href="https://github.com/raftapp/raft">GitHub</a>
     </div>
@@ -325,7 +224,7 @@
     </div>
     <div class="feature">
       <h3>Cloud Sync with E2E Encryption</h3>
-      <p>Sync sessions to Google Drive, encrypted with a password only you know. One-time $25 Pro upgrade — no subscriptions, ever.</p>
+      <p>Sync sessions to Google Drive, encrypted with a password only you know. Free and optional — no accounts, no subscriptions.</p>
     </div>
     <div class="feature">
       <h3>Import Your Data</h3>
@@ -345,40 +244,6 @@
     <img src="/raft.png" alt="Two otters floating together in kelp — a raft" class="callout-img" width="280" height="152">
     <h2>Why should you trust me?</h2>
     <p>The code is open, Shells can't peek at your data, and Raft will never be sold. <a href="/trust">Read my promise.</a></p>
-  </section>
-
-  <section class="pricing" id="pricing">
-    <h2>Simple, honest pricing.</h2>
-    <p class="pricing-subtitle">All core features are free. Pay once for cloud sync — no subscriptions.</p>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <h3>Free</h3>
-        <div class="price">$0</div>
-        <ul>
-          <li>Tab suspension with protection rules</li>
-          <li>Session save &amp; restore</li>
-          <li>Selective restore</li>
-          <li>Tab group preservation</li>
-          <li>Close duplicate tabs</li>
-          <li>Auto-save &amp; recovery snapshots</li>
-          <li>Backup health monitor</li>
-          <li>Import &amp; export</li>
-          <li>Keyboard shortcuts</li>
-        </ul>
-      </div>
-      <div class="pricing-card pro">
-        <h3>Pro</h3>
-        <div class="price">$25 <span>one-time</span></div>
-        <ul>
-          <li>Everything in Free, plus:</li>
-          <li>Cloud sync to Google Drive</li>
-          <li>End-to-end encryption (AES-256-GCM)</li>
-          <li>Sync across devices</li>
-          <li>Up to 10 devices &mdash; covers your whole household</li>
-        </ul>
-        <p class="pricing-note">No subscriptions. Ever.</p>
-      </div>
-    </div>
   </section>
 
   <section class="callout-banner">
